@@ -1,5 +1,6 @@
 package net.lalusko.createcogsinvaders;
 
+import net.lalusko.createcogsinvaders.block.ModBlocks;
 import net.lalusko.createcogsinvaders.item.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -17,6 +18,10 @@ public class ModCreativeModTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.ADVANCED_CHIP.get()))
                     .title(Component.translatable("creativetab.create_cogs_invaders"))
                     .displayItems(((pParameters, pOutput) -> {
+                        pOutput.accept(ModBlocks.SULFUR_ORE.get());
+                        pOutput.accept(ModBlocks.DEEPSLATE_SULFUR_ORE.get());
+                        pOutput.accept(ModBlocks.RAW_SULFUR_BLOCK.get());
+
                         pOutput.accept(ModItems.MEDKIT.get());
                         pOutput.accept(ModItems.REPAIR_KIT.get());
                         pOutput.accept(ModItems.RAW_SULFUR.get());

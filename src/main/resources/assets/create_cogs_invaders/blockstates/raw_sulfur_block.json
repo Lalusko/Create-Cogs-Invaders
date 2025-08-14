@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "create_cogs_invaders:block/raw_sulfur_block"
+    }
+  }
+}

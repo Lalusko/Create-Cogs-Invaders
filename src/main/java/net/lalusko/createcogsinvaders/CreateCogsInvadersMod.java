@@ -1,6 +1,7 @@
 package net.lalusko.createcogsinvaders;
 
 import com.mojang.logging.LogUtils;
+import net.lalusko.createcogsinvaders.block.ModBlocks;
 import net.lalusko.createcogsinvaders.item.ModItems;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -25,6 +26,7 @@ public class CreateCogsInvadersMod {
         ModCreativeModTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

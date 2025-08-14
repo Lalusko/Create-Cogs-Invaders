@@ -25,5 +25,9 @@
   "item.create_cogs_invaders.xp_container_empty": "Xp Container (empty)",
   "item.create_cogs_invaders.xp_container_full": "Xp Container (full)",
 
+  "block.create_cogs_invaders.sulfur_ore": "Sulfur Ore",
+  "block.create_cogs_invaders.deepslate_sulfur_ore": "Deepslate Sulfur Ore",
+  "block.create_cogs_invaders.raw_sulfur_block": "Raw Sulfur Block",
+
   "creativetab.create_cogs_invaders": "Create Cogs Invaders"
 }
