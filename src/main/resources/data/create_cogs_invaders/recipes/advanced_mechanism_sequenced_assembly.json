@@ -1,0 +1,90 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:brass_sheet"
+  },
+  "transitionalItem": {
+    "item": "create_cogs_invaders:incomplete_advanced_mechanism"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_cogs_invaders:incomplete_advanced_mechanism"
+        },
+        {
+          "item": "create_cogs_invaders:advanced_chip"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_cogs_invaders:incomplete_advanced_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_cogs_invaders:incomplete_advanced_mechanism"
+        },
+        {
+          "item": "create:cogwheel"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_cogs_invaders:incomplete_advanced_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_cogs_invaders:incomplete_advanced_mechanism"
+        },
+        {
+          "item": "create:large_cogwheel"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_cogs_invaders:incomplete_advanced_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_cogs_invaders:incomplete_advanced_mechanism"
+        },
+        {
+          "item": "create:electron_tube"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_cogs_invaders:advanced_mechanism"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "create_cogs_invaders:advanced_mechanism",
+      "chance": 120.0
+    },
+    {
+      "item": "create:brass_nugget",
+      "chance": 8.0
+    },
+    {
+      "item": "create:brass_ingot",
+      "chance": 4.0
+    }
+  ],
+  "loops": 2
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "create_cogs_invaders:raw_sulfur_block"
+    }
+  ],
+  "result": {
+    "item": "create_cogs_invaders:raw_sulfur",
+    "count": 9
+  }
+}

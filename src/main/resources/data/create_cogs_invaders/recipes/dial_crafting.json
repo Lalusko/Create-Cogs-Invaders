@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " a ",
+    "bcb",
+    " a "
+  ],
+  "key": {
+    "a": {
+      "item": "create:brass_sheet"
+    },
+    "b": {
+      "item": "minecraft:redstone"
+    },
+    "c": {
+      "item": "minecraft:amethyst_shard"
+    }
+  },
+  "result": {
+    "item": "create_cogs_invaders:dial",
+    "count": 1
+  }
+}

@@ -1,6 +1,7 @@
 package net.lalusko.createcogsinvaders.item;
 
 import net.lalusko.createcogsinvaders.CreateCogsInvadersMod;
+import net.lalusko.createcogsinvaders.item.custom.DialItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -27,13 +28,7 @@ public class ModItems {
             ITEMS.register("copper_wire", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> DIAL =
-            ITEMS.register("dial", () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> DIAL_HEALING =
-            ITEMS.register("dial_healing", () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> DIAL_REPAIR =
-            ITEMS.register("dial_repair", () -> new Item(new Item.Properties()));
+            ITEMS.register("dial", () -> new DialItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> DYNAMIC_CHIP =
             ITEMS.register("dynamic_chip", () -> new Item(new Item.Properties()));

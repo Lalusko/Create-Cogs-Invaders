@@ -1,0 +1,58 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create_cogs_invaders:xp_container_empty"
+  },
+  "transitionalItem": {
+    "item": "create_cogs_invaders:xp_container_empty"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_cogs_invaders:xp_container_empty"
+        },
+        {
+          "item": "create:experience_nugget"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_cogs_invaders:xp_container_empty"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_cogs_invaders:xp_container_empty"
+        },
+        {
+          "item": "create:brass_nugget"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_cogs_invaders:xp_container_full"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "create_cogs_invaders:xp_container_full",
+      "chance": 120.0
+    },
+    {
+      "item": "create_cogs_invaders:xp_container_empty",
+      "chance": 8.0
+    },
+    {
+      "item": "create:brass_nugget",
+      "chance": 4.0
+    }
+  ],
+  "loops": 1
+}

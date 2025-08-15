@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " a ",
+    "bcb",
+    "ddd"
+  ],
+  "key": {
+    "a": { "item": "create:andesite_alloy" },
+    "b": { "item": "create_cogs_invaders:xp_container_full" },
+    "c": {
+      "type": "forge:nbt",
+      "item": "create_cogs_invaders:dial",
+      "nbt": "{Mode:2}"
+    },
+    "d": { "item": "minecraft:gold_ingot" }
+  },
+  "result": { "item": "create_cogs_invaders:repair_kit", "count": 1 }
+}

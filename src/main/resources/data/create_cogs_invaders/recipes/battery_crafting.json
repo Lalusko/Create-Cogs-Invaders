@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " a ",
+    "bcb",
+    " d "
+  ],
+  "key": {
+    "a": {
+      "item": "create_cogs_invaders:copper_wire"
+    },
+    "b": {
+      "item": "minecraft:gold_nugget"
+    },
+    "c": {
+      "item": "minecraft:redstone"
+    },
+    "d": {
+      "item": "create:andesite_alloy"
+    }
+  },
+  "result": {
+    "item": "create_cogs_invaders:tesla_battery_ammo",
+    "count": 1
+  }
+}
