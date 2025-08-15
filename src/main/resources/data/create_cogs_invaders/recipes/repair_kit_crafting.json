@@ -11,7 +11,7 @@
       "item": "create:andesite_alloy"
     },
     "b": {
-      "item": "create_cogs_invaders:xp_container_full"
+      "item": "create_cogs_invaders:xp_container_empty"
     },
     "c": {
       "item": "create_cogs_invaders:dial_repair"

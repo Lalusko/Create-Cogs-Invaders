@@ -1,0 +1,9 @@
+{
+  "parent": "create_cogs_invaders:custom/healing_station_1",
+  "textures": {
+    "all": "create_cogs_invaders:block/healing_station",
+    "particle": "create_cogs_invaders:block/healing_station",
+    "0": "create_cogs_invaders:block/healing_station"
+  },
+  "render_type": "solid"
+}

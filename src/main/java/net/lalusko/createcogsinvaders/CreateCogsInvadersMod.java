@@ -3,6 +3,8 @@ package net.lalusko.createcogsinvaders;
 import com.mojang.logging.LogUtils;
 import net.lalusko.createcogsinvaders.block.ModBlocks;
 import net.lalusko.createcogsinvaders.item.ModItems;
+import net.lalusko.createcogsinvaders.particle.ModParticles;
+import net.lalusko.createcogsinvaders.sound.ModSounds;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -27,6 +29,8 @@ public class CreateCogsInvadersMod {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModSounds.SOUNDS.register(modEventBus);
+        ModParticles.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

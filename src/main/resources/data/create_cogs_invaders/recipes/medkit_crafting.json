@@ -6,7 +6,7 @@
       "item": "create_cogs_invaders:dial_healing"
     },
     {
-      "item": "create_cogs_invaders:xp_container_full"
+      "item": "create_cogs_invaders:xp_container_empty"
     }
   ],
   "result": {

@@ -1,0 +1,9 @@
+{
+  "parent": "create_cogs_invaders:custom/armor_repair_station_4",
+  "textures": {
+    "all": "create_cogs_invaders:block/armor_repair_station",
+    "particle": "create_cogs_invaders:block/armor_repair_station",
+    "0": "create_cogs_invaders:block/armor_repair_station"
+  },
+  "render_type": "solid"
+}

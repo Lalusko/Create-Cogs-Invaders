@@ -1,0 +1,98 @@
+{
+  "cog_hurt": {
+    "sounds": [
+      {
+        "name": "create_cogs_invaders:robot_hurt",
+        "stream": false
+      }
+    ]
+  },
+  "cog_death": {
+    "sounds": [
+      {
+        "name": "create_cogs_invaders:robot_death",
+        "stream": false
+      }
+    ]
+  },
+  "shocking_shoot": {
+    "sounds": [
+      {
+        "name": "create_cogs_invaders:shocking_throw",
+        "stream": false
+      }
+    ]
+  },
+  "shocking_effect": {
+    "sounds": [
+      {
+        "name": "create_cogs_invaders:loud_zap_3",
+        "stream": false
+      }
+    ]
+  },
+  "pistol_shoot": {
+    "sounds": [
+      {
+        "name": "create_cogs_invaders:fire",
+        "stream": false
+      }
+    ]
+  },
+  "station_reload": {
+    "sounds": [
+      {
+        "name": "create_cogs_invaders:station_reload",
+        "stream": false
+      }
+    ]
+  },
+  "station_use": {
+    "sounds": [
+      {
+        "name": "create_cogs_invaders:station_use",
+        "stream": false
+      }
+    ]
+  },
+  "station_error": {
+    "sounds": [
+      {
+        "name": "create_cogs_invaders:station_error",
+        "stream": false
+      }
+    ]
+  },
+  "ammo_recharge": {
+    "sounds": [
+      {
+        "name": "create_cogs_invaders:bolt_release",
+        "stream": false
+      }
+    ]
+  },
+  "the_story_unfolds": {
+    "sounds": [
+      {
+        "name": "create_cogs_invaders:jingle-punks-the-story-unfolds",
+        "stream": true
+      }
+    ]
+  },
+  "mortar_ball_shoot": {
+    "sounds": [
+      {
+        "name": "create_cogs_invaders:fire_mortar",
+        "stream": false
+      }
+    ]
+  },
+  "fwoomp": {
+    "sounds": [
+      {
+        "name": "create_cogs_invaders:fwoomp",
+        "stream": false
+      }
+    ]
+  }
+}
