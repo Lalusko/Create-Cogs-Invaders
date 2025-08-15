@@ -1,7 +1,9 @@
 package net.lalusko.createcogsinvaders.item;
 
 import net.lalusko.createcogsinvaders.CreateCogsInvadersMod;
+import net.lalusko.createcogsinvaders.item.custom.DialHealingItem;
 import net.lalusko.createcogsinvaders.item.custom.DialItem;
+import net.lalusko.createcogsinvaders.item.custom.DialRepairItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -21,14 +23,17 @@ public class ModItems {
     public static final RegistryObject<Item> BRASS_MUSIC_DISC =
             ITEMS.register("brass_music_disc", () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> HAND_DRILL =
-            ITEMS.register("hand_drill", () -> new Item(new Item.Properties()));
-
     public static final RegistryObject<Item> COPPER_WIRE =
             ITEMS.register("copper_wire", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> DIAL =
             ITEMS.register("dial", () -> new DialItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> DIAL_HEALING =
+            ITEMS.register("dial_healing", () -> new DialHealingItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> DIAL_REPAIR =
+            ITEMS.register("dial_repair", () -> new DialRepairItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> DYNAMIC_CHIP =
             ITEMS.register("dynamic_chip", () -> new Item(new Item.Properties()));
@@ -43,19 +48,16 @@ public class ModItems {
             ITEMS.register("electroconductive_mechanism", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> INCOMPLETE_ADVANCED_MECHANISM =
-            ITEMS.register("incomplete_advanced_mechanism", () -> new Item(new Item.Properties()));
+            ITEMS.register("incomplete_advanced_mechanism", () -> new Item(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> INCOMPLETE_DYNAMIC_MECHANISM =
-            ITEMS.register("incomplete_dynamic_mechanism", () -> new Item(new Item.Properties()));
+            ITEMS.register("incomplete_dynamic_mechanism", () -> new Item(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> INCOMPLETE_ELECTROCONDUCTIVE_MECHANISM =
-            ITEMS.register("incomplete_electroconductive_mechanism", () -> new Item(new Item.Properties()));
+            ITEMS.register("incomplete_electroconductive_mechanism", () -> new Item(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> MEDKIT =
-            ITEMS.register("medkit", () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> NETHERITE_HAND_DRILL =
-            ITEMS.register("netherite_hand_drill", () -> new Item(new Item.Properties()));
+            ITEMS.register("medkit", () -> new Item(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> POWDERED_SULFUR =
             ITEMS.register("powdered_sulfur", () -> new Item(new Item.Properties()));
@@ -64,16 +66,10 @@ public class ModItems {
             ITEMS.register("raw_sulfur", () -> new Item(new Item.Properties()));
 
         public static final RegistryObject<Item> REPAIR_KIT =
-            ITEMS.register("repair_kit", () -> new Item(new Item.Properties()));
+            ITEMS.register("repair_kit", () -> new Item(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> TESLA_BATTERY_AMMO =
-            ITEMS.register("tesla_battery_ammo", () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> TESLA_CANNON =
-            ITEMS.register("tesla_cannon", () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> TESLA_SHIELD =
-            ITEMS.register("tesla_shield", () -> new Item(new Item.Properties()));
+            ITEMS.register("tesla_battery_ammo", () -> new Item(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> XP_CONTAINER_EMPTY =
             ITEMS.register("xp_container_empty", () -> new Item(new Item.Properties()));

@@ -3,11 +3,14 @@
   "category": "misc",
   "ingredients": [
     {
-      "type": "forge:nbt",
-      "item": "create_cogs_invaders:dial",
-      "nbt": "{Mode:1}"
+      "item": "create_cogs_invaders:dial_healing"
     },
-    { "item": "create_cogs_invaders:xp_container_full" }
+    {
+      "item": "create_cogs_invaders:xp_container_full"
+    }
   ],
-  "result": { "item": "create_cogs_invaders:medkit", "count": 1 }
+  "result": {
+    "item": "create_cogs_invaders:medkit",
+    "count": 1
+  }
 }
