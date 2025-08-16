@@ -22,6 +22,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.DEEPSLATE_SULFUR_ORE.get());
                         pOutput.accept(ModBlocks.RAW_SULFUR_BLOCK.get());
                         pOutput.accept(ModBlocks.HEALING_STATION.get());
+                        pOutput.accept(ModBlocks.ARMOR_REPAIR_STATION.get());
 
                         pOutput.accept(ModItems.MEDKIT.get());
                         pOutput.accept(ModItems.REPAIR_KIT.get());

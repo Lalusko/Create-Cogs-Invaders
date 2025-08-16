@@ -1,6 +1,7 @@
 package net.lalusko.createcogsinvaders.block;
 
 import net.lalusko.createcogsinvaders.CreateCogsInvadersMod;
+import net.lalusko.createcogsinvaders.block.custom.ArmorRepairStationBlock;
 import net.lalusko.createcogsinvaders.block.custom.HealingStationBlock;
 import net.lalusko.createcogsinvaders.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -32,7 +33,7 @@ public class ModBlocks {
             registerBlock("healing_station", () -> new HealingStationBlock());
 
     public static final RegistryObject<Block> ARMOR_REPAIR_STATION =
-            registerBlock("armor_repair_station", () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK)));
+            registerBlock("armor_repair_station", () -> new ArmorRepairStationBlock());
 
     private static  <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

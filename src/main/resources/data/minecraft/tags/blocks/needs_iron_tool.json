@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "create_cogs_invaders:armor_repair_station",
+    "create_cogs_invaders:healing_station"
+  ]
+}
