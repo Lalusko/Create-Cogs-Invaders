@@ -1,6 +1,10 @@
 {
   "parent": "item/generated",
-  "textures": {
-    "layer0": "create_cogs_invaders:item/repair_kit_0"
-  }
+  "textures": { "layer0": "create_cogs_invaders:item/repair_kit_0" },
+  "overrides": [
+    { "predicate": { "custom_model_data": 4 }, "model": "create_cogs_invaders:item/repair_kit_4" },
+    { "predicate": { "custom_model_data": 3 }, "model": "create_cogs_invaders:item/repair_kit_3" },
+    { "predicate": { "custom_model_data": 2 }, "model": "create_cogs_invaders:item/repair_kit_2" },
+    { "predicate": { "custom_model_data": 1 }, "model": "create_cogs_invaders:item/repair_kit_1" }
+  ]
 }

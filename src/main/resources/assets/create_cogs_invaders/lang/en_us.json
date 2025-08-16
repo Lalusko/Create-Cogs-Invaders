@@ -22,14 +22,16 @@
   "item.create_cogs_invaders.tesla_battery_ammo": "Tesla Battery Ammo",
   "item.create_cogs_invaders.tesla_cannon": "Tesla Cannon",
   "item.create_cogs_invaders.tesla_shield": "Tesla Shield",
-  "item.create_cogs_invaders.xp_container_empty": "Xp Container (empty)",
-  "item.create_cogs_invaders.xp_container_full": "Xp Container (full)",
+  "item.create_cogs_invaders.large_bottle": "Large Bottle",
+  "item.create_cogs_invaders.xp_container": "Xp Container",
 
   "block.create_cogs_invaders.sulfur_ore": "Sulfur Ore",
   "block.create_cogs_invaders.deepslate_sulfur_ore": "Deepslate Sulfur Ore",
   "block.create_cogs_invaders.raw_sulfur_block": "Raw Sulfur Block",
   "block.create_cogs_invaders.healing_station": "Healing Station",
   "block.create_cogs_invaders.armor_repair_station": "Armor Repair Station",
+
+  "tooltip.create_cogs_invaders.repair_kit.uses": "Uses: %s/%s",
 
   "creativetab.create_cogs_invaders": "Create Cogs Invaders"
 }

@@ -4,6 +4,7 @@ import net.lalusko.createcogsinvaders.CreateCogsInvadersMod;
 import net.lalusko.createcogsinvaders.item.custom.DialHealingItem;
 import net.lalusko.createcogsinvaders.item.custom.DialItem;
 import net.lalusko.createcogsinvaders.item.custom.DialRepairItem;
+import net.lalusko.createcogsinvaders.item.custom.RepairKitItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -69,7 +70,7 @@ public class ModItems {
             ITEMS.register("raw_sulfur", () -> new Item(new Item.Properties()));
 
         public static final RegistryObject<Item> REPAIR_KIT =
-            ITEMS.register("repair_kit", () -> new Item(new Item.Properties().stacksTo(1)));
+            ITEMS.register("repair_kit", () -> new RepairKitItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> TESLA_BATTERY_AMMO =
             ITEMS.register("tesla_battery_ammo", () -> new Item(new Item.Properties().stacksTo(1)));
