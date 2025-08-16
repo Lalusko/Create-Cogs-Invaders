@@ -30,6 +30,7 @@ public class ArmorRepairStationBlock extends HorizontalDirectionalBlock {
     public static final IntegerProperty BLOCKSTATE = IntegerProperty.create("blockstate", 0, 4);
     public static final int CAPACITY = 4;
 
+    private static final int REPAIR_BUDGET_PER_USE = 1200;
     private static final double NOZZLE_DY    = 2.0 / 16.0;
     private static final double NOZZLE_FRONT = 0.14994;
 
@@ -70,8 +71,12 @@ public class ArmorRepairStationBlock extends HorizontalDirectionalBlock {
         return getShape(s, w, p, c);
     }
 
-    @Override public BlockState rotate(BlockState s, Rotation r) { return s.setValue(FACING, r.rotate(s.getValue(FACING))); }
-    @Override public BlockState mirror(BlockState s, Mirror m) { return s.rotate(m.getRotation(s.getValue(FACING))); }
+    @Override public BlockState rotate(BlockState s, Rotation r) {
+        return s.setValue(FACING, r.rotate(s.getValue(FACING)));
+    }
+    @Override public BlockState mirror(BlockState s, Mirror m) {
+        return s.rotate(m.getRotation(s.getValue(FACING)));
+    }
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos,
@@ -81,8 +86,8 @@ public class ArmorRepairStationBlock extends HorizontalDirectionalBlock {
         int charges = state.getValue(BLOCKSTATE);
         ItemStack main = player.getMainHandItem();
         ItemStack off  = player.getOffhandItem();
-        boolean hasMain = main.is(ModItems.XP_CONTAINER_FULL.get());
-        boolean hasOff  = off.is(ModItems.XP_CONTAINER_FULL.get());
+        boolean hasMain = main.is(ModItems.XP_CONTAINER.get());
+        boolean hasOff  = off.is(ModItems.XP_CONTAINER.get());
         boolean holdingContainer = hasMain || hasOff;
 
         if (holdingContainer) {

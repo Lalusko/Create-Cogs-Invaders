@@ -95,8 +95,8 @@ public class HealingStationBlock extends HorizontalDirectionalBlock {
         int charges = state.getValue(BLOCKSTATE);
         ItemStack main = player.getMainHandItem();
         ItemStack off  = player.getOffhandItem();
-        boolean hasMain = main.is(ModItems.XP_CONTAINER_FULL.get());
-        boolean hasOff  = off.is(ModItems.XP_CONTAINER_FULL.get());
+        boolean hasMain = main.is(ModItems.XP_CONTAINER.get());
+        boolean hasOff  = off.is(ModItems.XP_CONTAINER.get());
         boolean holdingContainer = hasMain || hasOff;
 
         if (holdingContainer) {

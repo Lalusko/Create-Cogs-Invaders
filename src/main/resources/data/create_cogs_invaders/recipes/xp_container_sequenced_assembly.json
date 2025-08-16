@@ -1,52 +1,60 @@
 {
   "type": "create:sequenced_assembly",
   "ingredient": {
-    "item": "create_cogs_invaders:xp_container_empty"
+    "item": "create_cogs_invaders:large_bottle"
   },
   "transitionalItem": {
-    "item": "create_cogs_invaders:xp_container_empty"
+    "item": "create_cogs_invaders:large_bottle"
   },
   "sequence": [
     {
       "type": "create:deploying",
       "ingredients": [
-        {
-          "item": "create_cogs_invaders:xp_container_empty"
-        },
-        {
-          "item": "create:experience_nugget"
-        }
+        { "item": "create_cogs_invaders:large_bottle" },
+        { "item": "create:experience_nugget" }
       ],
-      "results": [
-        {
-          "item": "create_cogs_invaders:xp_container_empty"
-        }
-      ]
+      "results": [ { "item": "create_cogs_invaders:large_bottle" } ]
     },
     {
       "type": "create:deploying",
       "ingredients": [
-        {
-          "item": "create_cogs_invaders:xp_container_empty"
-        },
-        {
-          "item": "create:brass_nugget"
-        }
+        { "item": "create_cogs_invaders:large_bottle" },
+        { "item": "create:experience_nugget" }
       ],
-      "results": [
-        {
-          "item": "create_cogs_invaders:xp_container_full"
-        }
-      ]
+      "results": [ { "item": "create_cogs_invaders:large_bottle" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "create_cogs_invaders:large_bottle" },
+        { "item": "create:experience_nugget" }
+      ],
+      "results": [ { "item": "create_cogs_invaders:large_bottle" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "create_cogs_invaders:large_bottle" },
+        { "item": "create:experience_nugget" }
+      ],
+      "results": [ { "item": "create_cogs_invaders:large_bottle" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "create_cogs_invaders:large_bottle" },
+        { "tag": "forge:nuggets/brass" }
+      ],
+      "results": [ { "item": "create_cogs_invaders:large_bottle" } ]
     }
   ],
   "results": [
     {
-      "item": "create_cogs_invaders:xp_container_full",
+      "item": "create_cogs_invaders:xp_container",
       "chance": 120.0
     },
     {
-      "item": "create_cogs_invaders:xp_container_empty",
+      "item": "create_cogs_invaders:large_bottle",
       "chance": 8.0
     },
     {

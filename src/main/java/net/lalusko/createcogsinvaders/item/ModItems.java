@@ -56,6 +56,9 @@ public class ModItems {
     public static final RegistryObject<Item> INCOMPLETE_ELECTROCONDUCTIVE_MECHANISM =
             ITEMS.register("incomplete_electroconductive_mechanism", () -> new Item(new Item.Properties().stacksTo(1)));
 
+    public static final RegistryObject<Item> LARGE_BOTTLE =
+            ITEMS.register("large_bottle", () -> new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> MEDKIT =
             ITEMS.register("medkit", () -> new Item(new Item.Properties().stacksTo(1)));
 
@@ -71,11 +74,8 @@ public class ModItems {
     public static final RegistryObject<Item> TESLA_BATTERY_AMMO =
             ITEMS.register("tesla_battery_ammo", () -> new Item(new Item.Properties().stacksTo(1)));
 
-    public static final RegistryObject<Item> XP_CONTAINER_EMPTY =
-            ITEMS.register("xp_container_empty", () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> XP_CONTAINER_FULL =
-            ITEMS.register("xp_container_full", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> XP_CONTAINER =
+            ITEMS.register("xp_container", () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

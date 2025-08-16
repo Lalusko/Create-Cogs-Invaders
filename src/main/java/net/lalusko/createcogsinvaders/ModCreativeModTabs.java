@@ -36,8 +36,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.DYNAMIC_MECHANISM.get());
                         pOutput.accept(ModItems.ADVANCED_MECHANISM.get());
                         pOutput.accept(ModItems.ADVANCED_MECHANISM.get());
-                        pOutput.accept(ModItems.XP_CONTAINER_EMPTY.get());
-                        pOutput.accept(ModItems.XP_CONTAINER_FULL.get());
+                        pOutput.accept(ModItems.LARGE_BOTTLE.get());
+                        pOutput.accept(ModItems.XP_CONTAINER.get());
                         pOutput.accept(ModItems.TESLA_BATTERY_AMMO.get());
                         pOutput.accept(ModItems.DIAL.get());
                         pOutput.accept(ModItems.BRASS_MUSIC_DISC.get());
