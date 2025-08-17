@@ -1,0 +1,30 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": false,
+  "key": {
+    "B": {
+      "item": "create:brass_sheet"
+    },
+    "M": {
+      "item": "create_cogs_invaders:advanced_mechanism"
+    },
+    "D": {
+      "item": "create_cogs_invaders:dial_healing"
+    },
+    "C": {
+      "item": "create_cogs_invaders:large_bottle"
+    },
+    "R": {
+      "item": "create:railway_casing"
+    }
+  },
+  "pattern": [
+    "  B  ",
+    "CBDBC",
+    "CBMBC",
+    "  R  "
+  ],
+  "result": {
+    "item": "create_cogs_invaders:healing_station"
+  }
+}

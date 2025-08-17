@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "create_cogs_invaders:item/xp_container_full"
+    "layer0": "create_cogs_invaders:item/xp_container"
   }
 }

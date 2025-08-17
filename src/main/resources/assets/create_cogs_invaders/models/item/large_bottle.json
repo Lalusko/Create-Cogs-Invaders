@@ -1,9 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "create_cogs_invaders:item/xp_container_empty"
-  },
-  "overrides": [
-    { "predicate": { "custom_model_data": 1 }, "model": "create_cogs_invaders:item/xp_container_overlay" }
-  ]
+    "layer0": "create_cogs_invaders:item/large_bottle"
+  }
 }

@@ -55,10 +55,10 @@ public class ModItems {
             ITEMS.register("incomplete_electroconductive_mechanism", () -> new Item(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> LARGE_BOTTLE =
-            ITEMS.register("large_bottle", () -> new LargeBottleItem(new Item.Properties()));
+            ITEMS.register("large_bottle", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> MEDKIT =
-            ITEMS.register("medkit", () -> new Item(new Item.Properties().stacksTo(1)));
+            ITEMS.register("medkit", () -> new MedkitItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> POWDERED_SULFUR =
             ITEMS.register("powdered_sulfur", () -> new Item(new Item.Properties()));
