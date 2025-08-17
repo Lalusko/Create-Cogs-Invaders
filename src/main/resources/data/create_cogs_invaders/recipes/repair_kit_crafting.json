@@ -11,13 +11,13 @@
       "item": "create:andesite_alloy"
     },
     "b": {
-      "item": "create_cogs_invaders:large_bottle"
+      "item": "create_cogs_invaders:xp_container"
     },
     "c": {
       "item": "create_cogs_invaders:dial_repair"
     },
     "d": {
-      "item": "minecraft:gold_ingot"
+      "item": "create:brass_sheet"
     }
   },
   "result": {

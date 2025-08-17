@@ -2,16 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    "a",
-    "b",
-    "a"
+    "aba",
+    " b ",
+    "aba"
   ],
   "key": {
     "a": {
       "item": "create:brass_nugget"
     },
     "b": {
-      "item": "minecraft:glass_bottle"
+      "item": "minecraft:glass"
     }
   },
   "result": {

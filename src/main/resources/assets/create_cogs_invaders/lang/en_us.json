@@ -31,6 +31,8 @@
   "block.create_cogs_invaders.healing_station": "Healing Station",
   "block.create_cogs_invaders.armor_repair_station": "Armor Repair Station",
 
+  "enchantment.create_cogs_invaders.restoration": "Restoration",
+
   "tooltip.create_cogs_invaders.repair_kit.uses": "Uses: %s/%s",
 
   "creativetab.create_cogs_invaders": "Create Cogs Invaders"
