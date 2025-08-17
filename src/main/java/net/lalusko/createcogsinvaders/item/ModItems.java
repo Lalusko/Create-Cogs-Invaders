@@ -1,10 +1,7 @@
 package net.lalusko.createcogsinvaders.item;
 
 import net.lalusko.createcogsinvaders.CreateCogsInvadersMod;
-import net.lalusko.createcogsinvaders.item.custom.DialHealingItem;
-import net.lalusko.createcogsinvaders.item.custom.DialItem;
-import net.lalusko.createcogsinvaders.item.custom.DialRepairItem;
-import net.lalusko.createcogsinvaders.item.custom.RepairKitItem;
+import net.lalusko.createcogsinvaders.item.custom.*;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -58,7 +55,7 @@ public class ModItems {
             ITEMS.register("incomplete_electroconductive_mechanism", () -> new Item(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> LARGE_BOTTLE =
-            ITEMS.register("large_bottle", () -> new Item(new Item.Properties()));
+            ITEMS.register("large_bottle", () -> new LargeBottleItem(new Item.Properties()));
 
     public static final RegistryObject<Item> MEDKIT =
             ITEMS.register("medkit", () -> new Item(new Item.Properties().stacksTo(1)));
