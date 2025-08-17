@@ -2,7 +2,10 @@ package net.lalusko.createcogsinvaders.item;
 
 import net.lalusko.createcogsinvaders.CreateCogsInvadersMod;
 import net.lalusko.createcogsinvaders.item.custom.*;
+import net.lalusko.createcogsinvaders.sound.ModSounds;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.RecordItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -19,7 +22,8 @@ public class ModItems {
             ITEMS.register("advanced_mechanism", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> BRASS_MUSIC_DISC =
-            ITEMS.register("brass_music_disc", () -> new Item(new Item.Properties()));
+            ITEMS.register("brass_music_disc", () -> new RecordItem(7,
+                    ModSounds.THE_STORY_UNFOLDS, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 1800));
 
     public static final RegistryObject<Item> COPPER_WIRE =
             ITEMS.register("copper_wire", () -> new Item(new Item.Properties()));

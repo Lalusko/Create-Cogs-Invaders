@@ -74,10 +74,13 @@
   "the_story_unfolds": {
     "sounds": [
       {
-        "name": "create_cogs_invaders:jingle-punks-the-story-unfolds",
+        "name": "create_cogs_invaders:music/jingle_punks_the_story_unfolds",
         "stream": true
       }
-    ]
+    ],
+    "category": "record",
+    "attenuation_distance": 64,
+    "volume": 1.0
   },
   "mortar_ball_shoot": {
     "sounds": [

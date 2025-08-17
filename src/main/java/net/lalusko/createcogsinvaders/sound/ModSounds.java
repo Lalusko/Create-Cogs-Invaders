@@ -21,4 +21,8 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> STATION_ERROR =
             SOUNDS.register("station_error",
                     () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(MOD_ID, "station_error")));
+
+    public static final RegistryObject<SoundEvent> THE_STORY_UNFOLDS =
+            SOUNDS.register("jingle_punks_the_story_unfolds",
+                    () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(MOD_ID, "jingle_punks_the_story_unfolds")));
 }
