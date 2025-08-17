@@ -5,6 +5,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -36,17 +37,29 @@ public class LargeBottleItem extends Item {
         return Math.max(0, Math.min(MAX_USES, stack.getTag().getInt(TAG_USES)));
     }
     public static void setUses(ItemStack stack, int uses) {
-        stack.getOrCreateTag().putInt(TAG_USES, Math.max(0, Math.min(MAX_USES, uses)));
+        stack.getOrCreateTag().putInt("Uses", Math.max(0, Math.min(4, uses)));
+        syncCMD(stack);
     }
     public static void clearContents(ItemStack stack) {
-        // Deja la botella "vacía": sin Potion y sin Uses
         if (!stack.hasTag()) return;
-        stack.getTag().remove(TAG_USES);
+        stack.getTag().remove("Uses");
         stack.getTag().remove("Potion");
+        stack.getTag().remove("CustomModelData");
         if (stack.getTag().isEmpty()) stack.setTag(null);
     }
     private static boolean hasPotion(ItemStack stack) {
         return stack.hasTag() && stack.getTag().contains("Potion");
+    }
+
+    // Garantiza que stacks creados por recetas (que no escriben CMD) se arreglen solos
+    @Override
+    public void inventoryTick(ItemStack stack, Level level, Entity e, int slot, boolean selected) {
+        super.inventoryTick(stack, level, e, slot, selected);
+        // Re-sincroniza si está mal
+        boolean shouldFilled = stack.hasTag() && stack.getTag().contains("Potion") && getUses(stack) > 0;
+        boolean hasCMD = stack.hasTag() && stack.getTag().contains("CustomModelData");
+        if (shouldFilled && !hasCMD) stack.getOrCreateTag().putInt("CustomModelData", 1);
+        if (!shouldFilled && hasCMD) stack.getTag().remove("CustomModelData");
     }
 
     // =============== Uso sobre uno mismo ===============
@@ -114,15 +127,12 @@ public class LargeBottleItem extends Item {
 
     private void consumeOneUse(Level level, Player player, InteractionHand hand, ItemStack bottle) {
         if (!level.isClientSide) {
-            if (player.getAbilities().instabuild) {
-                // creativo: no gasta usos
-                return;
-            }
             int uses = getUses(bottle);
             if (uses > 1) {
                 setUses(bottle, uses - 1);
             } else {
-                clearContents(bottle); // vuelve a "vacía"
+                // Se acabó: deja la botella vacía
+                clearContents(bottle);
             }
         }
     }
@@ -137,5 +147,29 @@ public class LargeBottleItem extends Item {
             setUses(out, MAX_USES);
         }
         return out;
+    }
+
+    @Override
+    public net.minecraft.network.chat.Component getName(ItemStack stack) {
+        // Si está vacía o sin usos, usa el nombre base (“Large Bottle”)
+        if (!stack.hasTag() || LargeBottleItem.getUses(stack) <= 0
+                || net.minecraft.world.item.alchemy.PotionUtils.getPotion(stack) == net.minecraft.world.item.alchemy.Potions.EMPTY) {
+            return super.getName(stack);
+        }
+        // Nombre vanilla de la poción (incluye “of Swiftness”, “Long…”, “Strong…”, etc.)
+        var potionName = net.minecraft.world.item.alchemy.PotionUtils
+                .getPotion(stack)
+                .getName(net.minecraft.world.item.Items.POTION.getDescriptionId() + ".effect.");
+
+        // “Large Bottle — <Potion of …>”
+        return super.getName(stack).copy().append(net.minecraft.network.chat.Component.literal(" — ")).append(potionName);
+    }
+
+    // En tu LargeBottleItem
+    private static void syncCMD(ItemStack stack) {
+        var tag = stack.getOrCreateTag();
+        boolean filled = stack.hasTag() && stack.getTag().contains("Potion") && LargeBottleItem.getUses(stack) > 0;
+        if (filled) tag.putInt("CustomModelData", 1);
+        else tag.remove("CustomModelData");
     }
 }

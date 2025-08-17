@@ -1,0 +1,13 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    { "item": "create_cogs_invaders:large_bottle" },
+    { "fluid": "minecraft:water", "amount": 1000 }
+  ],
+  "results": [
+    {
+      "item": "create_cogs_invaders:large_bottle",
+      "nbt": "{Uses:4,Potion:\"minecraft:water\"}"
+    }
+  ]
+}
