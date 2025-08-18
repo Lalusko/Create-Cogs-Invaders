@@ -33,8 +33,8 @@ public class ElectroshockClientController {
 
     // TODO: Cambia estas llamadas por tu API real del overlay
     private static void pushToOverlay(float a) {
-        // YourElectroOverlay.setEnabled(a > 0.02f);
-        // YourElectroOverlay.setAlpha(a);
+        ClientOverlays.setEnabled(a > 0.02f);
+        ClientOverlays.setAlpha(a);
     }
 }
 

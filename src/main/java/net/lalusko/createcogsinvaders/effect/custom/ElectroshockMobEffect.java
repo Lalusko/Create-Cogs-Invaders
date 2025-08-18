@@ -33,41 +33,37 @@ public class ElectroshockMobEffect extends MobEffect {
         return false;
     }
 
-    // Ocultar icono/HUD del efecto (Forge client extension)
     @Override
     public void initializeClient(java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientMobEffectExtensions> consumer) {
         final net.minecraft.resources.ResourceLocation ICON =
                 new net.minecraft.resources.ResourceLocation(CreateCogsInvadersMod.MOD_ID, "textures/mob_effect/electroshock.png");
 
         consumer.accept(new net.minecraftforge.client.extensions.common.IClientMobEffectExtensions() {
-            @Override
-            public boolean isVisibleInInventory(net.minecraft.world.effect.MobEffectInstance inst) {
-                return true;
-            }
 
-            @Override
-            public boolean isVisibleInGui(net.minecraft.world.effect.MobEffectInstance inst) {
-                return true;
-            }
+            @Override public boolean isVisibleInInventory(net.minecraft.world.effect.MobEffectInstance inst) { return true; }
+            @Override public boolean isVisibleInGui(net.minecraft.world.effect.MobEffectInstance inst)       { return true; }
 
-            // Inventario (lista de efectos en la izquierda)
+            // Inventario (24x24) -> centra 18x18 en (x+3,y+3)
             @Override
             public boolean renderInventoryIcon(net.minecraft.world.effect.MobEffectInstance inst,
                                                net.minecraft.client.gui.screens.inventory.EffectRenderingInventoryScreen<?> screen,
-                                               net.minecraft.client.gui.GuiGraphics g, int x, int y, int blitOffset) {
-                // Dibuja tu icono 18x18
-                g.blit(ICON, x + 6, y + 6, 0, 0, 18, 18, 18, 18);
-                return true; // evita render por defecto
+                                               net.minecraft.client.gui.GuiGraphics g, int x, int y, int blitZ) {
+                g.blit(ICON, x + 3, y + 3, 0, 0, 18, 18, 18, 18);
+                return true;
             }
 
-            // HUD (sobre los corazones)
+            // HUD (slot 24x24 normalmente). También centrado en (x+3,y+3)
             @Override
             public boolean renderGuiIcon(net.minecraft.world.effect.MobEffectInstance inst,
                                          net.minecraft.client.gui.Gui gui,
                                          net.minecraft.client.gui.GuiGraphics g, int x, int y, float z, float alpha) {
-                // Si quieres respetar el parpadeo (alpha) puedes multiplicarlo con setColor si lo usas
+                // ver punto 3 para el parpadeo (alpha)
+                com.mojang.blaze3d.systems.RenderSystem.enableBlend();
+                com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1f, 1f, 1f, alpha);
                 g.blit(ICON, x + 3, y + 3, 0, 0, 18, 18, 18, 18);
-                return false; // evita render por defecto
+                com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
+                com.mojang.blaze3d.systems.RenderSystem.disableBlend();
+                return true;
             }
         });
     }
