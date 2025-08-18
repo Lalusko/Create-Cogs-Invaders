@@ -79,16 +79,7 @@
       }
     ],
     "category": "record",
-    "attenuation_distance": 64,
-    "volume": 0.8
-  },
-  "mortar_ball_shoot": {
-    "sounds": [
-      {
-        "name": "create_cogs_invaders:fire_mortar",
-        "stream": false
-      }
-    ]
+    "volume": 0.9
   },
   "fwoomp": {
     "sounds": [
