@@ -35,7 +35,7 @@
   "enchantment.create_cogs_invaders.restoration": "Restoration",
   "enchantment.create_cogs_invaders.first_aid": "First Aid",
 
-  "tooltip.create_cogs_invaders.repair_kit.uses": "Uses: %s/%s",
+  "effect.create_cogs_invaders.electroshock": "Electroshock",
 
   "creativetab.create_cogs_invaders": "Create Cogs Invaders"
 }
