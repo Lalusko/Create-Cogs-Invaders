@@ -28,7 +28,7 @@ public class CreateCogsInvadersMod {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
-        ModSounds.SOUNDS.register(modEventBus);
+        ModSounds.register(modEventBus);
         ModEnchantments.ENCHANTMENTS.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);

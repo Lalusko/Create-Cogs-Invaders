@@ -23,7 +23,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> BRASS_MUSIC_DISC =
             ITEMS.register("brass_music_disc", () -> new RecordItem(7,
-                    ModSounds.THE_STORY_UNFOLDS, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 1800));
+                    ModSounds.JINGLE_PUNKS_THE_STORY_UNFOLDS, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 1800));
 
     public static final RegistryObject<Item> COPPER_WIRE =
             ITEMS.register("copper_wire", () -> new Item(new Item.Properties()));
