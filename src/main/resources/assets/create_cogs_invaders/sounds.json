@@ -23,7 +23,7 @@
       }
     ]
   },
-  "shocking_effect": {
+  "electroshock_start": {
     "sounds": [
       {
         "name": "create_cogs_invaders:loud_zap_3",

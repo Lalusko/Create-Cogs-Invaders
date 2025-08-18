@@ -2,6 +2,7 @@ package net.lalusko.createcogsinvaders;
 
 import com.mojang.logging.LogUtils;
 import net.lalusko.createcogsinvaders.block.ModBlocks;
+import net.lalusko.createcogsinvaders.effect.ModEffects;
 import net.lalusko.createcogsinvaders.enchantment.ModEnchantments;
 import net.lalusko.createcogsinvaders.item.ModItems;
 import net.lalusko.createcogsinvaders.sound.ModSounds;
@@ -30,6 +31,7 @@ public class CreateCogsInvadersMod {
         ModBlocks.register(modEventBus);
         ModSounds.register(modEventBus);
         ModEnchantments.ENCHANTMENTS.register(modEventBus);
+        ModEffects.EFFECTS.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
