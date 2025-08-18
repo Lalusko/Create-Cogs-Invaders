@@ -1,12 +1,20 @@
 package net.lalusko.createcogsinvaders.effect.custom;
 
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.lalusko.createcogsinvaders.CreateCogsInvadersMod;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.inventory.EffectRenderingInventoryScreen;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraftforge.client.extensions.common.IClientMobEffectExtensions;
 
 import java.util.UUID;
+import java.util.function.Consumer;
 
 public class ElectroshockMobEffect extends MobEffect {
     // UUIDs estables para que no se dupliquen
@@ -36,31 +44,28 @@ public class ElectroshockMobEffect extends MobEffect {
     @Override
     public void initializeClient(java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientMobEffectExtensions> consumer) {
         final net.minecraft.resources.ResourceLocation ICON =
-                new net.minecraft.resources.ResourceLocation(CreateCogsInvadersMod.MOD_ID, "textures/mob_effect/electroshock.png");
+                new net.minecraft.resources.ResourceLocation(CreateCogsInvadersMod.MOD_ID, "textures/mob_effect/electroshock.png"); // 18x18
 
         consumer.accept(new net.minecraftforge.client.extensions.common.IClientMobEffectExtensions() {
-
             @Override public boolean isVisibleInInventory(net.minecraft.world.effect.MobEffectInstance inst) { return true; }
             @Override public boolean isVisibleInGui(net.minecraft.world.effect.MobEffectInstance inst)       { return true; }
 
-            // Inventario (24x24) -> centra 18x18 en (x+3,y+3)
+            // INVENTARIO: dibuja 18x18 en la caja vanilla anclada en x+6, y+7
             @Override
             public boolean renderInventoryIcon(net.minecraft.world.effect.MobEffectInstance inst,
                                                net.minecraft.client.gui.screens.inventory.EffectRenderingInventoryScreen<?> screen,
                                                net.minecraft.client.gui.GuiGraphics g, int x, int y, int blitZ) {
-                g.blit(ICON, x + 3, y + 3, 0, 0, 18, 18, 18, 18);
-                return true;
+                g.blit(ICON, x + 0, y + 7, 0, 0, 18, 18, 18, 18);
+                return true; // sustituimos el render vanilla
             }
 
-            // HUD (slot 24x24 normalmente). También centrado en (x+3,y+3)
+            // HUD: igual, pero aplicando el alpha que da vanilla (parpadeo al final)
             @Override
             public boolean renderGuiIcon(net.minecraft.world.effect.MobEffectInstance inst,
-                                         net.minecraft.client.gui.Gui gui,
-                                         net.minecraft.client.gui.GuiGraphics g, int x, int y, float z, float alpha) {
-                // ver punto 3 para el parpadeo (alpha)
+                                         net.minecraft.client.gui.Gui gui, net.minecraft.client.gui.GuiGraphics g, int x, int y, float z, float alpha) {
                 com.mojang.blaze3d.systems.RenderSystem.enableBlend();
                 com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1f, 1f, 1f, alpha);
-                g.blit(ICON, x + 3, y + 3, 0, 0, 18, 18, 18, 18);
+                g.blit(ICON, x + 4, y + 4, 0, 0, 16, 16, 16, 16);
                 com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
                 com.mojang.blaze3d.systems.RenderSystem.disableBlend();
                 return true;

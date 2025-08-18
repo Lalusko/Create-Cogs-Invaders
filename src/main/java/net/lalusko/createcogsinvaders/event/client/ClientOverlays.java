@@ -19,35 +19,23 @@ public class ClientOverlays {
 
     @SubscribeEvent
     public static void registerOverlays(RegisterGuiOverlaysEvent e) {
-        // Encima del vignette vanilla para que siempre se vea
         e.registerAbove(VanillaGuiOverlay.VIGNETTE.id(), "electroshock_screen",
-                (gui, gg, partialTicks, width, height) -> {
+                (gui, gg, partial, width, height) -> {
                     var mc = Minecraft.getInstance();
-                    if (mc.player == null) return;
-                    if (!mc.player.hasEffect(ModEffects.ELECTROSHOCK.get())) return;
+                    if (mc.player == null || !mc.player.hasEffect(ModEffects.ELECTROSHOCK.get())) return;
 
-                    // Intensidad fija (no parpadea)
-                    float alpha = 0.55f;
-
+                    float alpha = 0.55f; // fijo, sin parpadeo
                     RenderSystem.enableBlend();
                     RenderSystem.disableDepthTest();
                     RenderSystem.setShaderColor(1f, 1f, 1f, alpha);
 
-                    // Dibuja tu textura a pantalla completa.
-                    // Los dos últimos parámetros son el tamaño de la textura (256×256 recomendado).
-                    gg.blit(ELECTRO_VIGNETTE, 0, 0, 0, 0, width, height, 256, 256);
+                    // ¡OJO a la firma!: x, y, destW, destH, u, v, regW, regH, texW, texH
+                    gg.blit(ELECTRO_VIGNETTE, 0, 0, width, height, 0, 0, 256, 256, 256, 256);
 
                     RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
                     RenderSystem.enableDepthTest();
                     RenderSystem.disableBlend();
                 });
-    }
-
-    public static void setEnabled(boolean b) {
-    }
-
-    public static void setAlpha(float a) {
-
     }
 }
 
