@@ -1,4 +1,4 @@
-package net.lalusko.createcogsinvaders.event.common;
+package net.lalusko.createcogsinvaders.effect.common;
 
 import net.lalusko.createcogsinvaders.CreateCogsInvadersMod;
 import net.lalusko.createcogsinvaders.effect.ModEffects;

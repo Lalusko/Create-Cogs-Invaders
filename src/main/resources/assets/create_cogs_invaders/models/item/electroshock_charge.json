@@ -1,0 +1,11 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "create_cogs_invaders:item/electroshock_charge"
+  },
+  "display": {
+    "ground": {
+      "scale": [0.25, 0.25, 0.25]
+    }
+  }
+}

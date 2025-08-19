@@ -1,20 +1,12 @@
 package net.lalusko.createcogsinvaders.effect.custom;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.lalusko.createcogsinvaders.CreateCogsInvadersMod;
-import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.inventory.EffectRenderingInventoryScreen;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraftforge.client.extensions.common.IClientMobEffectExtensions;
 
 import java.util.UUID;
-import java.util.function.Consumer;
 
 public class ElectroshockMobEffect extends MobEffect {
     // UUIDs estables para que no se dupliquen

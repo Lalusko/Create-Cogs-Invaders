@@ -49,6 +49,9 @@ public class ModItems {
     public static final RegistryObject<Item> ELECTROCONDUCTIVE_MECHANISM =
             ITEMS.register("electroconductive_mechanism", () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> ELECTROSHOCK_CHARGE =
+            ITEMS.register("electroshock_charge", () -> new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> INCOMPLETE_ADVANCED_MECHANISM =
             ITEMS.register("incomplete_advanced_mechanism", () -> new Item(new Item.Properties().stacksTo(1)));
 

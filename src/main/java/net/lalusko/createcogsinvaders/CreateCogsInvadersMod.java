@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.lalusko.createcogsinvaders.block.ModBlocks;
 import net.lalusko.createcogsinvaders.effect.ModEffects;
 import net.lalusko.createcogsinvaders.enchantment.ModEnchantments;
+import net.lalusko.createcogsinvaders.entity.ModEntities;
 import net.lalusko.createcogsinvaders.item.ModItems;
 import net.lalusko.createcogsinvaders.sound.ModSounds;
 import net.minecraftforge.api.distmarker.Dist;
@@ -32,6 +33,7 @@ public class CreateCogsInvadersMod {
         ModSounds.register(modEventBus);
         ModEnchantments.ENCHANTMENTS.register(modEventBus);
         ModEffects.EFFECTS.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
