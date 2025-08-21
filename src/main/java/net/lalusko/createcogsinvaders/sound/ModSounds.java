@@ -17,6 +17,8 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> STATION_ERROR = registerSoundEvents("station_error");
     public static final RegistryObject<SoundEvent> JINGLE_PUNKS_THE_STORY_UNFOLDS = registerSoundEvents("jingle_punks_the_story_unfolds");
     public static final RegistryObject<SoundEvent> ELECTROSHOCK_START = registerSoundEvents("electroshock_start");
+    public static final RegistryObject<SoundEvent> TESLA_CANNON_SHOOT = registerSoundEvents("shocking_shoot");
+    public static final RegistryObject<SoundEvent> AMMO_RELOAD = registerSoundEvents("ammo_recharge");
 
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(CreateCogsInvadersMod.MOD_ID, name)));

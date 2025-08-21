@@ -7,6 +7,9 @@ import net.lalusko.createcogsinvaders.enchantment.ModEnchantments;
 import net.lalusko.createcogsinvaders.entity.ModEntities;
 import net.lalusko.createcogsinvaders.item.ModItems;
 import net.lalusko.createcogsinvaders.sound.ModSounds;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -17,6 +20,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import software.bernie.geckolib.GeckoLib;
 
 @Mod(CreateCogsInvadersMod.MOD_ID)
 public class CreateCogsInvadersMod {
@@ -37,6 +41,8 @@ public class CreateCogsInvadersMod {
 
         modEventBus.addListener(this::commonSetup);
 
+        GeckoLib.initialize();
+
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
     }
@@ -53,6 +59,8 @@ public class CreateCogsInvadersMod {
     public class ClientInit {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+
+            EntityRenderers.register(ModEntities.ELECTROSHOCK_CHARGE.get(), ThrownItemRenderer::new);
 
         }
     }

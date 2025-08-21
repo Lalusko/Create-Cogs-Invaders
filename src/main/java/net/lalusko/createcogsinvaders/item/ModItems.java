@@ -77,7 +77,10 @@ public class ModItems {
             ITEMS.register("repair_kit", () -> new RepairKitItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> TESLA_BATTERY_AMMO =
-            ITEMS.register("tesla_battery_ammo", () -> new Item(new Item.Properties().stacksTo(1)));
+            ITEMS.register("tesla_battery_ammo", () -> new TeslaBatteryItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> TESLA_CANNON =
+            ITEMS.register("tesla_battery_ammo", () -> new TeslaCannonItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> XP_CONTAINER =
             ITEMS.register("xp_container", () -> new Item(new Item.Properties()));
