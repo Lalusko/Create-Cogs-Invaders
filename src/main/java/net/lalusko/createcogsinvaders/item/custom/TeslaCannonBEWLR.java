@@ -14,18 +14,14 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 
 public class TeslaCannonBEWLR extends BlockEntityWithoutLevelRenderer {
-    private static final String MOD_ID = "create_cogs_invaders"; // ← si tu modid es distinto, cámbialo aquí
+    private static final String MODID = "createcogsinvaders";
 
     private BakedModel bodyModel;
     private BakedModel coilModel;
     private BakedModel flashModel;
 
     public TeslaCannonBEWLR() {
-        super(
-                Minecraft.getInstance().getBlockEntityRenderDispatcher(),
-                Minecraft.getInstance().getEntityModels()
-        );
-        // Cargamos lazy en renderByItem para evitar timing issues de ModelManager
+        super(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels());
     }
 
     private void ensureModels() {
@@ -34,51 +30,51 @@ public class TeslaCannonBEWLR extends BlockEntityWithoutLevelRenderer {
         bodyModel  = mm.getModel(new ModelResourceLocation(new ResourceLocation(CreateCogsInvadersMod.MOD_ID, "tesla_cannon_body"), "inventory"));
         coilModel  = mm.getModel(new ModelResourceLocation(new ResourceLocation(CreateCogsInvadersMod.MOD_ID, "tesla_cannon_coil"), "inventory"));
         flashModel = mm.getModel(new ModelResourceLocation(new ResourceLocation(CreateCogsInvadersMod.MOD_ID, "tesla_cannon_electric"), "inventory"));
+
+        var missing = Minecraft.getInstance().getModelManager().getMissingModel();
+        if (bodyModel == missing) System.out.println("[TeslaCannonBEWLR] BODY = MISSING");
+        if (coilModel == missing) System.out.println("[TeslaCannonBEWLR] COIL = MISSING");
+        if (flashModel == missing) System.out.println("[TeslaCannonBEWLR] FLASH = MISSING");
+
     }
 
     @Override
     public void renderByItem(ItemStack stack, ItemDisplayContext ctx, PoseStack pose,
                              MultiBufferSource buf, int light, int overlay) {
 
+        System.out.println("[TeslaCannonBEWLR] renderByItem!");
+
         ensureModels();
-
-        var mc    = Minecraft.getInstance();
+        var mc = Minecraft.getInstance();
         var level = mc.level;
-        float pt  = mc.getFrameTime();
-        long gt   = (level != null ? level.getGameTime() : 0);
+        float pt = mc.getFrameTime();
+        long gt = (level != null ? level.getGameTime() : 0);
 
-        // Estado "on" basado en NBT (setéalo al disparar)
         long last = stack.getOrCreateTag().getLong("lastShot");
-        float dt  = (float)((gt - last) + pt); // ticks desde el último disparo
+        float dt = (float)((gt - last) + pt);
 
-        // Parámetros (ajusta a gusto)
-        float onDur     = 6f;   // duración del “on” (ticks)
-        float idleSpeed = 6f;   // grados/tick en idle
-        float onSpeed   = 36f;  // grados/tick en “on”
-        float rotSpeed  = (dt >= 0 && dt < onDur) ? onSpeed : idleSpeed;
-        float angleDeg  = rotSpeed * (gt + pt);
+        float onDur = 6f;
+        float idleSpeed = 6f, onSpeed = 36f;
+        float speed = (dt >= 0 && dt < onDur) ? onSpeed : idleSpeed;
+        float angle = speed * (gt + pt);
 
         var renderer = mc.getItemRenderer();
 
-        // 1) Render cuerpo (sin transform)
+        // cuerpo
         renderer.render(stack, ctx, false, pose, buf, light, overlay, bodyModel);
 
-        // 2) Render bobina: rotación sobre su pivote
+        // bobina (ajusta pivote/eje según tu Blockbench)
         pose.pushPose();
-        // Ajusta estos offset al pivote real que definiste en Blockbench para la bobina
-        pose.translate(0.5, 0.5, 0.5);          // mover al centro (ejemplo)
-        pose.mulPose(Axis.ZP.rotationDegrees(angleDeg)); // eje de giro: cambia a YP/XP si corresponde
+        pose.translate(0.5, 0.5, 0.5);
+        pose.mulPose(Axis.ZP.rotationDegrees(angle));
         pose.translate(-0.5, -0.5, -0.5);
-        renderer.render(stack, ctx, false, pose, buf, LightTexture.FULL_BRIGHT, overlay, coilModel); // fullbright para “brillo”
+        renderer.render(stack, ctx, false, pose, buf, LightTexture.FULL_BRIGHT, overlay, coilModel);
         pose.popPose();
 
-        // 3) Render destello eléctrico: solo durante “on”
+        // destello visible en "on"
         if (dt >= 0 && dt < onDur) {
             pose.pushPose();
-            // Posiciona el plane del destello en la punta de la antena (ajusta a tu modelo)
-            pose.translate(0.5, 0.5, 0.9);
-            // Si quieres animar la escala con el tiempo:
-            // float s = 0.85f + 0.15f * (1f - dt/onDur); pose.scale(s, s, s);
+            pose.translate(0.5, 0.5, 0.9); // ajusta a la punta de tu antena
             renderer.render(stack, ctx, false, pose, buf, LightTexture.FULL_BRIGHT, overlay, flashModel);
             pose.popPose();
         }

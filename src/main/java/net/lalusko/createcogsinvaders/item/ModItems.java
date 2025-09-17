@@ -80,7 +80,7 @@ public class ModItems {
             ITEMS.register("tesla_battery_ammo", () -> new Item(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> TESLA_CANNON =
-            ITEMS.register("tesla_cannon", () -> new Item(new Item.Properties().stacksTo(1)));
+            ITEMS.register("tesla_cannon", () -> new net.lalusko.createcogsinvaders.item.custom.TeslaCannonItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> XP_CONTAINER =
             ITEMS.register("xp_container", () -> new Item(new Item.Properties().stacksTo(1)));
