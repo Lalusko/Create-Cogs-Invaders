@@ -2,8 +2,8 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "item/tesla_cannon_body",
-		"particle": "item/tesla_cannon_body"
+		"0": "create_cogs_invaders:item/tesla_cannon_body",
+		"particle": "create_cogs_invaders:item/tesla_cannon_body"
 	},
 	"elements": [
 		{

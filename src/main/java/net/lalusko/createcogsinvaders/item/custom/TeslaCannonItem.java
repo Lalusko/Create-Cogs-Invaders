@@ -23,10 +23,13 @@ public class TeslaCannonItem extends Item {
 
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+        System.out.println("[TeslaCannonItem] initializeClient hook");
         consumer.accept(new IClientItemExtensions() {
-            private final BlockEntityWithoutLevelRenderer renderer = new TeslaCannonBEWLR();
+            private final BlockEntityWithoutLevelRenderer r = new TeslaCannonBEWLR();
             @Override
-            public BlockEntityWithoutLevelRenderer getCustomRenderer() { return renderer; }
+            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                System.out.println("[TeslaCannonItem] getCustomRenderer");
+                return r; }
         });
     }
 

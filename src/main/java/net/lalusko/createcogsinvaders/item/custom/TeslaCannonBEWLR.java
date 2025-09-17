@@ -14,7 +14,7 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 
 public class TeslaCannonBEWLR extends BlockEntityWithoutLevelRenderer {
-    private static final String MODID = "createcogsinvaders";
+    private static final String MOD_ID = CreateCogsInvadersMod.MOD_ID;
 
     private BakedModel bodyModel;
     private BakedModel coilModel;
@@ -22,6 +22,7 @@ public class TeslaCannonBEWLR extends BlockEntityWithoutLevelRenderer {
 
     public TeslaCannonBEWLR() {
         super(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels());
+        System.out.println("[TeslaCannonBEWLR] ctor");
     }
 
     private void ensureModels() {
@@ -41,8 +42,7 @@ public class TeslaCannonBEWLR extends BlockEntityWithoutLevelRenderer {
     @Override
     public void renderByItem(ItemStack stack, ItemDisplayContext ctx, PoseStack pose,
                              MultiBufferSource buf, int light, int overlay) {
-
-        System.out.println("[TeslaCannonBEWLR] renderByItem!");
+        System.out.println("[TeslaCannonBEWLR] renderByItem");
 
         ensureModels();
         var mc = Minecraft.getInstance();
