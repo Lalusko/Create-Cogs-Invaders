@@ -39,6 +39,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.LARGE_BOTTLE.get());
                         pOutput.accept(ModItems.XP_CONTAINER.get());
                         pOutput.accept(ModItems.TESLA_BATTERY_AMMO.get());
+                        pOutput.accept(ModItems.TESLA_CANNON.get());
                         pOutput.accept(ModItems.DIAL.get());
                         pOutput.accept(ModItems.BRASS_MUSIC_DISC.get());
                     }))

@@ -3,27 +3,32 @@ package net.lalusko.createcogsinvaders.entity.projectile;
 import net.lalusko.createcogsinvaders.effect.ModEffects;
 import net.lalusko.createcogsinvaders.entity.ModEntities;
 import net.lalusko.createcogsinvaders.item.ModItems;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
-import net.minecraft.world.phys.HitResult;
+import net.minecraftforge.network.NetworkHooks;
 
 public class ElectroshockChargeEntity extends ThrowableItemProjectile {
 
-    public ElectroshockChargeEntity(EntityType<? extends ThrowableItemProjectile> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
+    private int life;
+
+    public ElectroshockChargeEntity(EntityType<? extends ElectroshockChargeEntity> type, Level level) {
+        super(type, level);
+        this.noCulling = true;
     }
 
-    public ElectroshockChargeEntity(Level pLevel) {
-        super(ModEntities.ELECTROSHOCK_CHARGE.get(), pLevel);
-    }
-
-    public ElectroshockChargeEntity(Level pLevel, LivingEntity livingEntity) {
-        super(ModEntities.ELECTROSHOCK_CHARGE.get(), livingEntity, pLevel);
+    public ElectroshockChargeEntity(Level level, LivingEntity shooter) {
+        super(ModEntities.ELECTROSHOCK_CHARGE.get(), shooter, level);
+        this.noCulling = true;
     }
 
     @Override
@@ -33,36 +38,67 @@ public class ElectroshockChargeEntity extends ThrowableItemProjectile {
 
     @Override
     protected float getGravity() {
-        // Trayectoria recta (sin caída)
-        return 0.0f;
+        return 0.0F;
     }
 
     @Override
-    protected void onHitEntity(EntityHitResult hit) {
-        super.onHitEntity(hit);
-        if (!level().isClientSide) {
-            if (hit.getEntity() instanceof LivingEntity target) {
-                // Condición: vida ACTUAL < 50.0f
-                if (target.getHealth() < 50.0f) {
-                    // 1 hp de daño (1.0f = 1 punto de vida = 0.5 corazón)
-                    DamageSource src = damageSources().thrown(this, this.getOwner());
-                    target.hurt(src, 1.0f);
+    public void tick() {
+        super.tick();
+        if (++life > 200) this.discard();
 
-                    // Aplica tu efecto de poción "Electroshock"
-                    // Duración/Amplificador a tu gusto (ticks: 20 = 1s)
-                    target.addEffect(new net.minecraft.world.effect.MobEffectInstance(
-                            ModEffects.ELECTROSHOCK.get(), 20 * 10, 0, false, true));
+        if (!level().isClientSide) {
+            var aabb = this.getBoundingBox().inflate(0.05);
+            for (var e : level().getEntities(this, aabb, ent -> ent instanceof LivingEntity)) {
+                LivingEntity living = (LivingEntity) e;
+                if (living.getHealth() < 50.0f) {
+                    living.addEffect(new MobEffectInstance(ModEffects.ELECTROSHOCK.get(), 100, 0));
                 }
+                this.discard();
+                break;
             }
-            this.discard(); // Destruye el proyectil tras impactar
         }
     }
 
     @Override
-    protected void onHit(HitResult hit) {
-        super.onHit(hit);
+    protected void onHitEntity(EntityHitResult result) {
+        super.onHitEntity(result);
+        if (!level().isClientSide && result.getEntity() instanceof LivingEntity living) {
+
+            if (living.getHealth() < 50.0f) {
+                living.addEffect(new MobEffectInstance(ModEffects.ELECTROSHOCK.get(), 100, 0)); // 5s, ampl. 0
+            }
+
+            living.hurt(level().damageSources().indirectMagic(this, this.getOwner()), 0.1F);
+
+            this.discard();
+        }
+    }
+
+    @Override
+    protected void onHitBlock(BlockHitResult result) {
+        super.onHitBlock(result);
         if (!level().isClientSide) {
             this.discard();
         }
+    }
+
+    @Override
+    public void playerTouch(Player player) {
+        if (!level().isClientSide) {
+            if (player.getHealth() < 50.0f) {
+                player.addEffect(new MobEffectInstance(ModEffects.ELECTROSHOCK.get(), 100, 0));
+            }
+            this.discard();
+        }
+    }
+
+    @Override
+    public Packet<ClientGamePacketListener> getAddEntityPacket() {
+        return NetworkHooks.getEntitySpawningPacket(this);
+    }
+
+    @Override
+    public ItemStack getItemRaw() {
+        return new ItemStack(ModItems.ELECTROSHOCK_CHARGE.get());
     }
 }

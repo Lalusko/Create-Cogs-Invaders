@@ -29,6 +29,10 @@ public class MedkitItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack medkit = player.getItemInHand(hand);
 
+        if  (player.getCooldowns().isOnCooldown(this)) {
+            return InteractionResultHolder.fail(medkit);
+        }
+
         if (!level.isClientSide) {
             boolean healed = tryHeal(level, player, player, medkit, hand);
             if (!healed) return InteractionResultHolder.pass(medkit);
@@ -39,6 +43,11 @@ public class MedkitItem extends Item {
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
         Level level = player.level();
+
+        if (player.getCooldowns().isOnCooldown(this)) {
+            return InteractionResult.FAIL;
+        }
+
         if (!level.isClientSide) {
             boolean healed = tryHeal(level, player, target, stack, hand);
             if (!healed) return InteractionResult.PASS;
@@ -47,7 +56,11 @@ public class MedkitItem extends Item {
     }
 
     private boolean tryHeal(Level level, Player user, LivingEntity target, ItemStack medkit, InteractionHand hand) {
+
+        if (user.getCooldowns().isOnCooldown(this)) return false;
+
         if (target.getHealth() >= target.getMaxHealth()) return false;
+
         int enchLevel = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.FIRST_AID.get(), medkit);
         int amountHp  = BASE_HEAL_HP + enchLevel * HEAL_PER_LEVEL;
 

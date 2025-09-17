@@ -35,7 +35,7 @@ public class ElectroshockCommonEvents {
 
             Vec3 v = le.getDeltaMovement();
             if (le.isInWaterOrBubble()) {
-                double ny = v.y > 0 ? v.y * 0.6 : v.y - 0.005; // flotar difícil
+                double ny = v.y > 0 ? v.y * 0.75 : v.y - 0.005; // flotar difícil
                 le.setDeltaMovement(v.x, ny, v.z);
                 le.resetFallDistance();
             } else if (!le.onGround()) {
@@ -50,7 +50,7 @@ public class ElectroshockCommonEvents {
         LivingEntity le = e.getEntity();
         if (le.hasEffect(ModEffects.ELECTROSHOCK.get()) && !le.hasEffect(MobEffects.LEVITATION)) {
             Vec3 v = le.getDeltaMovement();
-            le.setDeltaMovement(v.x, v.y * 0.6, v.z);
+            le.setDeltaMovement(v.x, v.y * 0.75, v.z);
         }
     }
 

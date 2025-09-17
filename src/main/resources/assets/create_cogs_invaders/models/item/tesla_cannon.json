@@ -1,6 +1,0 @@
-{
-  "parent": "create_cogs_invaders:displaysettings/teslacannon",
-  "textures": {
-    "layer0": "create_cogs_invaders:item/tesla_cannon"
-  }
-}
