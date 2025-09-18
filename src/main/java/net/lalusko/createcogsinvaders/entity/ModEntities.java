@@ -17,8 +17,8 @@ public class ModEntities {
     public static final RegistryObject<EntityType<ElectroshockChargeEntity>> ELECTROSHOCK_CHARGE =
             ENTITY_TYPES.register("electroshock_charge", () ->
                     EntityType.Builder.<ElectroshockChargeEntity>of(ElectroshockChargeEntity::new, MobCategory.MISC)
-                            .sized(0.25f, 0.25f)     // hitbox pequeño tipo snowball
-                            .clientTrackingRange(64) // buen rango de tracking
+                            .sized(0.25f, 0.25f)
+                            .clientTrackingRange(64)
                             .updateInterval(10)
                             .build(new ResourceLocation("create_cogs_invaders", "electroshock_charge").toString()));
 

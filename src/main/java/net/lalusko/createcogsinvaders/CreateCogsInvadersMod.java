@@ -6,11 +6,11 @@ import net.lalusko.createcogsinvaders.effect.ModEffects;
 import net.lalusko.createcogsinvaders.enchantment.ModEnchantments;
 import net.lalusko.createcogsinvaders.entity.ModEntities;
 import net.lalusko.createcogsinvaders.item.ModItems;
+import net.lalusko.createcogsinvaders.item.custom.TeslaCannonItem;
+import net.lalusko.createcogsinvaders.item.custom.TeslaCannonRenderer;
 import net.lalusko.createcogsinvaders.sound.ModSounds;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
-import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -21,6 +21,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import software.bernie.geckolib.GeckoLib;
 
 @Mod(CreateCogsInvadersMod.MOD_ID)
 public class CreateCogsInvadersMod {
@@ -29,6 +30,8 @@ public class CreateCogsInvadersMod {
 
     public CreateCogsInvadersMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        GeckoLib.initialize();
 
         ModCreativeModTabs.register(modEventBus);
 
@@ -57,16 +60,12 @@ public class CreateCogsInvadersMod {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
 
-            EntityRenderers.register(ModEntities.ELECTROSHOCK_CHARGE.get(), ThrownItemRenderer::new);
+            GeoItemRenderer.registerItemRenderer(
+                    (TeslaCannonItem) ModItems.TESLA_CANNON.get(),
+                    new TeslaCannonRenderer()
+            );
 
-            ItemProperties.register(ModItems.TESLA_CANNON.get(), new ResourceLocation("recoil"), (stack, level, entity, seed) -> {
-                if (entity == null || level == null) return 0f;
-                long last = stack.getOrCreateTag().getLong("lastShot");
-                long dt = level.getGameTime() - last;
-                // 0→1 decae en ~6 ticks: pico de retroceso y vuelve
-                if (dt >= 0 && dt <= 6) return 1f - (dt / 6f);
-                return 0f;
-            });
+            EntityRenderers.register(ModEntities.ELECTROSHOCK_CHARGE.get(), ThrownItemRenderer::new);
         }
     }
 }

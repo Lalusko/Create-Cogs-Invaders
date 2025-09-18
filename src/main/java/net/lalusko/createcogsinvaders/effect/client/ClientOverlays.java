@@ -24,12 +24,11 @@ public class ClientOverlays {
                     var mc = Minecraft.getInstance();
                     if (mc.player == null || !mc.player.hasEffect(ModEffects.ELECTROSHOCK.get())) return;
 
-                    float alpha = 0.55f; // fijo, sin parpadeo
+                    float alpha = 0.55f;
                     RenderSystem.enableBlend();
                     RenderSystem.disableDepthTest();
                     RenderSystem.setShaderColor(1f, 1f, 1f, alpha);
 
-                    // ¡OJO a la firma!: x, y, destW, destH, u, v, regW, regH, texW, texH
                     gg.blit(ELECTRO_VIGNETTE, 0, 0, width, height, 0, 0, 256, 256, 256, 256);
 
                     RenderSystem.setShaderColor(1f, 1f, 1f, 1f);

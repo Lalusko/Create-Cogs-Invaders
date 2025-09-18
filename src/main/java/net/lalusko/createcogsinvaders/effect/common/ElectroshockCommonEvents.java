@@ -17,7 +17,6 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = CreateCogsInvadersMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ElectroshockCommonEvents {
 
-    // Minería −25%
     @SubscribeEvent
     public static void onBreakSpeed(PlayerEvent.BreakSpeed e) {
         Player p = e.getEntity();
@@ -26,7 +25,6 @@ public class ElectroshockCommonEvents {
         }
     }
 
-    // “Pesa” en aire/agua; no interfiere con Levitation
     @SubscribeEvent
     public static void onLivingTick(LivingEvent.LivingTickEvent e) {
         LivingEntity le = e.getEntity();
@@ -35,16 +33,15 @@ public class ElectroshockCommonEvents {
 
             Vec3 v = le.getDeltaMovement();
             if (le.isInWaterOrBubble()) {
-                double ny = v.y > 0 ? v.y * 0.75 : v.y - 0.005; // flotar difícil
+                double ny = v.y > 0 ? v.y * 0.75 : v.y - 0.005;
                 le.setDeltaMovement(v.x, ny, v.z);
                 le.resetFallDistance();
             } else if (!le.onGround()) {
-                le.setDeltaMovement(v.x, v.y - 0.03, v.z);     // más gravedad en aire
+                le.setDeltaMovement(v.x, v.y - 0.03, v.z);
             }
         }
     }
 
-    // Salto debilitado
     @SubscribeEvent
     public static void onLivingJump(LivingEvent.LivingJumpEvent e) {
         LivingEntity le = e.getEntity();
@@ -54,7 +51,6 @@ public class ElectroshockCommonEvents {
         }
     }
 
-    // Sonido al aplicarse
     @SubscribeEvent
     public static void onEffectAdded(MobEffectEvent.Added e) {
         if (e.getEffectInstance().getEffect() == ModEffects.ELECTROSHOCK.get()) {
