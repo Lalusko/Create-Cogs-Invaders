@@ -6,8 +6,6 @@ import net.lalusko.createcogsinvaders.effect.ModEffects;
 import net.lalusko.createcogsinvaders.enchantment.ModEnchantments;
 import net.lalusko.createcogsinvaders.entity.ModEntities;
 import net.lalusko.createcogsinvaders.item.ModItems;
-import net.lalusko.createcogsinvaders.item.custom.TeslaCannonItem;
-import net.lalusko.createcogsinvaders.item.custom.TeslaCannonRenderer;
 import net.lalusko.createcogsinvaders.sound.ModSounds;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
@@ -59,11 +57,6 @@ public class CreateCogsInvadersMod {
     public class ClientInit {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
-            GeoItemRenderer.registerItemRenderer(
-                    (TeslaCannonItem) ModItems.TESLA_CANNON.get(),
-                    new TeslaCannonRenderer()
-            );
 
             EntityRenderers.register(ModEntities.ELECTROSHOCK_CHARGE.get(), ThrownItemRenderer::new);
         }
