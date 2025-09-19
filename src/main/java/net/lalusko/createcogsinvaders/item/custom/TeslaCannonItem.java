@@ -1,5 +1,6 @@
 package net.lalusko.createcogsinvaders.item.custom;
 
+import net.lalusko.createcogsinvaders.entity.projectile.ElectroshockChargeEntity;
 import net.lalusko.createcogsinvaders.item.client.render.TeslaCannonBEWLR;
 import net.lalusko.createcogsinvaders.sound.ModSounds;
 import net.minecraft.client.Minecraft;
@@ -11,6 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 
 import java.util.function.Consumer;
@@ -21,10 +23,20 @@ public class TeslaCannonItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
+
         if (!level.isClientSide) {
-            level.playSound(null, player.blockPosition(), ModSounds.TESLA_CANNON_SHOOT.get(), SoundSource.PLAYERS, 0.6f, 1.0f);
+            ElectroshockChargeEntity proj = new ElectroshockChargeEntity(level, player);
+            proj.setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
+
+            Vec3 look = player.getLookAngle();
+            float speed = 2.4f;
+            proj.shoot(look.x, look.y, look.z, speed, 0.0f);
+
+            level.addFreshEntity(proj);
+
             stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(hand));
-            player.getCooldowns().addCooldown(this, 12); // ~0.6s a 20tps
+            player.getCooldowns().addCooldown(this, 12);
+            level.playSound(null, player.blockPosition(), ModSounds.TESLA_CANNON_SHOOT.get(), SoundSource.PLAYERS, 0.6f, 1.0f);
         }
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
     }

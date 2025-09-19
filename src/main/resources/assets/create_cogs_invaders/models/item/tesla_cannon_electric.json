@@ -3,8 +3,10 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"particle": "tesla_cannon"
+		"layer0": "create_cogs_invaders:item/tesla_cannon",
+		"particle": "create_cogs_invaders:item/tesla_cannon"
 	},
+	"gui_light": "front",
 	"elements": [
 		{
 			"name": "electric",
@@ -13,10 +15,10 @@
 			"rotation": {"angle": 0, "axis": "y", "origin": [8.75, 10.5, -3.6]},
 			"color": 7,
 			"faces": {
-				"east": {"uv": [13.75, 1, 16, 0], "texture": "#missing"},
-				"west": {"uv": [16, 0, 13.75, 1], "texture": "#missing"},
-				"up": {"uv": [16, 1, 13.75, 0], "rotation": 90, "texture": "#missing"},
-				"down": {"uv": [13.75, 0, 16, 1], "rotation": 90, "texture": "#missing"}
+				"east": {"uv": [13.75, 1, 16, 0], "texture": "#layer0"},
+				"west": {"uv": [16, 0, 13.75, 1], "texture": "#layer0"},
+				"up": {"uv": [16, 1, 13.75, 0], "rotation": 90, "texture": "#layer0"},
+				"down": {"uv": [13.75, 0, 16, 1], "rotation": 90, "texture": "#layer0"}
 			}
 		}
 	],
