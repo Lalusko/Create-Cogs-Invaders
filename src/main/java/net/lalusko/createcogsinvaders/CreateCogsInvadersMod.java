@@ -19,17 +19,18 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
-import software.bernie.geckolib.GeckoLib;
 
 @Mod(CreateCogsInvadersMod.MOD_ID)
 public class CreateCogsInvadersMod {
     public static final String MOD_ID = "create_cogs_invaders";
     private static final Logger LOGGER = LogUtils.getLogger();
 
+    public static net.minecraft.resources.ResourceLocation asResource(String path) {
+        return new net.minecraft.resources.ResourceLocation(MOD_ID, path);
+    }
+
     public CreateCogsInvadersMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
-        GeckoLib.initialize();
 
         ModCreativeModTabs.register(modEventBus);
 
