@@ -1,6 +1,15 @@
 {
-  "parent": "item/generated",
+  "parent": "create_cogs_invaders:custom/tesla_shield",
   "textures": {
-    "layer0": "create_cogs_invaders:item/tesla_shield"
-  }
+    "0": "create_cogs_invaders:item/tesla_shield",
+    "particle": "create_cogs_invaders:item/tesla_shield"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "create_cogs_invaders:item/tesla_shield_0"
+    }
+  ]
 }

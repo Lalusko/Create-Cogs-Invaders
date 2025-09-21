@@ -21,7 +21,7 @@ public class ElectroshockCommonEvents {
     public static void onBreakSpeed(PlayerEvent.BreakSpeed e) {
         Player p = e.getEntity();
         if (p.hasEffect(ModEffects.ELECTROSHOCK.get())) {
-            e.setNewSpeed(e.getNewSpeed() * 0.67f);
+            e.setNewSpeed(e.getNewSpeed() * 0.75f);
         }
     }
 

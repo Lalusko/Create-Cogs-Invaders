@@ -1,6 +1,7 @@
 package net.lalusko.createcogsinvaders;
 
 import com.mojang.logging.LogUtils;
+import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.lalusko.createcogsinvaders.block.ModBlocks;
 import net.lalusko.createcogsinvaders.effect.ModEffects;
 import net.lalusko.createcogsinvaders.enchantment.ModEnchantments;
@@ -24,8 +25,9 @@ import org.slf4j.Logger;
 public class CreateCogsInvadersMod {
     public static final String MOD_ID = "create_cogs_invaders";
     private static final Logger LOGGER = LogUtils.getLogger();
+    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MOD_ID);
 
-    public static net.minecraft.resources.ResourceLocation asResource(String path) {
+    public static net.minecraft.resources.ResourceLocation modLoc(String path) {
         return new net.minecraft.resources.ResourceLocation(MOD_ID, path);
     }
 

@@ -1,0 +1,7 @@
+{
+  "parent": "create_cogs_invaders:custom/tesla_shield_blocking",
+  "textures": {
+    "0": "create_cogs_invaders:item/tesla_shield_blocking",
+    "particle": "create_cogs_invaders:item/tesla_shield"
+  }
+}

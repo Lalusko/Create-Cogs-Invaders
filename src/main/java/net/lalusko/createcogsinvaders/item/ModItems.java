@@ -50,7 +50,7 @@ public class ModItems {
             ITEMS.register("electroconductive_mechanism", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> ELECTROSHOCK_CHARGE =
-            ITEMS.register("electroshock_charge", () -> new Item(new Item.Properties().stacksTo(16)));
+            ITEMS.register("electroshock_charge", () -> new Item(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> INCOMPLETE_ADVANCED_MECHANISM =
             ITEMS.register("incomplete_advanced_mechanism", () -> new Item(new Item.Properties().stacksTo(1)));
@@ -79,8 +79,8 @@ public class ModItems {
     public static final RegistryObject<Item> TESLA_BATTERY_AMMO =
             ITEMS.register("tesla_battery_ammo", () -> new Item(new Item.Properties().stacksTo(1)));
 
-    public static final RegistryObject<Item> TESLA_CANNON = ITEMS.register("tesla_cannon",
-            () -> new Item(new Item.Properties().stacksTo(1).durability(100)));
+    public static final RegistryObject<Item> TESLA_SHIELD =
+            ITEMS.register("tesla_shield", () -> new TeslaShieldItem(new Item.Properties().stacksTo(1).durability(336)));
 
     public static final RegistryObject<Item> XP_CONTAINER =
             ITEMS.register("xp_container", () -> new Item(new Item.Properties().stacksTo(1)));

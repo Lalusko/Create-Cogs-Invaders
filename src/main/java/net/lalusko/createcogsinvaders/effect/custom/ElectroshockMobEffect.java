@@ -14,13 +14,13 @@ public class ElectroshockMobEffect extends MobEffect {
     private static final UUID ATKDAM_UUID = UUID.fromString("b2d2c2e0-2c9c-4b0c-9e8a-333333333333");
 
     public ElectroshockMobEffect() {
-        super(MobEffectCategory.HARMFUL, 0x42C5FF); // color azul eléctrico
+        super(MobEffectCategory.HARMFUL, 0x42C5FF);
         this.addAttributeModifier(Attributes.MOVEMENT_SPEED, MOVE_UUID.toString(),
                 -0.50D, AttributeModifier.Operation.MULTIPLY_TOTAL);
         this.addAttributeModifier(Attributes.ATTACK_SPEED, ATKSPD_UUID.toString(),
-                -0.33D, AttributeModifier.Operation.MULTIPLY_TOTAL);
+                -0.50D, AttributeModifier.Operation.MULTIPLY_TOTAL);
         this.addAttributeModifier(Attributes.ATTACK_DAMAGE, ATKDAM_UUID.toString(),
-                -0.33D, AttributeModifier.Operation.MULTIPLY_TOTAL);
+                -0.50D, AttributeModifier.Operation.MULTIPLY_TOTAL);
     }
 
     @Override
